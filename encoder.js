@@ -4,3 +4,8 @@ $("#inputArea").keydown(function(e) {
     document.getElementById('inputText').value = "";
   }
 });
+
+$("input[type='radio']").click(function(){
+  $("input:checked").prop('checked', false);
+  $(this).prop('checked', true);
+});
