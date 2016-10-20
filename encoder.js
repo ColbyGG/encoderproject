@@ -1,29 +1,41 @@
-
+//Checks which button is pressed
 $("input[type='radio']").click(function(){
 	 $("input:checked").prop('checked', false);
 	 $(this).prop('checked', true);
-
+   //deletes whats inside the text area
 	 document.getElementById("inputText").value = "";
  });
 
  $("#inputText").keydown(function(e){
 
+	
 	 var KeyCode = e.keyCode;
 	 console.log(Translate[KeyCode]);
 	 var Keys = Translate[KeyCode];
 
+   //Code for Echo translion
 	 if($("input:checked").val() == "echo"){
 		 $("#textArea").append(Translate[KeyCode]);
 	 }
 
+  //Code for caesar translation
 	 else if($("input:checked").val() == "caesar"){
 		 $("#textArea").append(caesarCipher[Keys]);
 	 }
 
+  //Code for heiroglyphics translation
 	  else if($("input:checked").val() == "heiroglyphics"){
 		 $("#textArea").append(heiroglyphicsCipher[Keys]);
 	 }
  });
+
+ //Decoder
+ $("#translationInputText").keydown(function(e){
+	 if(e.keyCode == 13) {
+		  document.getElementById("inputText").value = "";
+	 }
+ });
+ //KeyCode stuff
  var Translate = {
 	 32: " ",
  	 65: "a",
@@ -53,7 +65,7 @@ $("input[type='radio']").click(function(){
  	 89: "y",
  	 90: "z"
   }
-
+//caesar letter conversion
   var caesarCipher = {
  	 "a": "z",
  	 "b": "a",
@@ -82,7 +94,7 @@ $("input[type='radio']").click(function(){
  	 "y": "x",
  	 "z": "y",
   }
-
+//heiroglyphics letter conversion
   var heiroglyphicsCipher = {
  	 "a": "<img src='images/heiroglyphics/a.gif'>",
  	 "b": "<img src='images/heiroglyphics/b.gif'>",
