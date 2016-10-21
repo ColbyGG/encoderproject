@@ -6,14 +6,14 @@ $("input[type='radio']").click(function(){
 	 document.getElementById("inputText").value = "";
  });
 
+//Detects which key is being pressed
  $("#inputText").keydown(function(e){
-
-	
+	 //Translates keys to alphabet
 	 var KeyCode = e.keyCode;
 	 console.log(Translate[KeyCode]);
 	 var Keys = Translate[KeyCode];
 
-   //Code for Echo translion
+   //Code for Echo translation
 	 if($("input:checked").val() == "echo"){
 		 $("#textArea").append(Translate[KeyCode]);
 	 }
@@ -31,9 +31,9 @@ $("input[type='radio']").click(function(){
 
  //Decoder
  $("#translationInputText").keydown(function(e){
-	 if(e.keyCode == 13) {
-		  document.getElementById("inputText").value = "";
-	 }
+	 var keystroke= e.keyCode;
+	 var translations = Translate[keystroke];
+	 $("#translationArea").append(reverseShift[translations]);
  });
  //KeyCode stuff
  var Translate = {
@@ -123,3 +123,32 @@ $("input[type='radio']").click(function(){
  	 "y": "<img src='images/heiroglyphics/y.gif'>",
  	 "z": "<img src='images/heiroglyphics/z.gif'>"
   }
+	//opposite of caeser alphabet
+var reverseShift = {
+	"a": "b",
+	"b": "c",
+	"c": "d",
+	"d": "e",
+	"e": "f",
+	"f": "g",
+	"g": "h",
+	"h": "i",
+	"i": "j",
+	"j": "k",
+	"k": "l",
+	"l": "m",
+	"m": "n",
+	"n": "o",
+	"o": "p",
+	"p": "q",
+	"q": "r",
+	"r": "s",
+	"s": "t",
+	"t": "u",
+	"u": "v",
+	"v": "w",
+	"w": "x",
+	"x": "y",
+	"y": "z",
+	"z": "a"
+}
