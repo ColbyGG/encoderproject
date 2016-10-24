@@ -35,7 +35,7 @@ $("input[type='radio']").click(function(){
 	 var translations = Translate[keystroke];
 	 $("#translationArea").append(reverseShift[translations]);
  });
- //KeyCode stuff
+ //Translates keys to letters
  var Translate = {
 	 32: " ",
  	 65: "a",
